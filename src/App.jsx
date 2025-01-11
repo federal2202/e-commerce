@@ -6,11 +6,15 @@ import ShopCategory from './pages/ShopCategory'
 import Product from './pages/Product'
 import Cart from './pages/Cart'
 import LoginSignup from './pages/LoginSignup'
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
-
+const queryClient = new QueryClient()
 function App() {
   return (
-    <>
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -25,7 +29,7 @@ function App() {
           <Route path="/login" element={<LoginSignup />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </QueryClientProvider>
   )
 }
 
